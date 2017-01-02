@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=GBK" />
+    <title>2013 ZhuShengWen</title>
+    <link rel="stylesheet" href="/main.css" type="text/css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
+    <link rel="icon" href="/favicon.ico" type="image/ico" />
+</head>
+<body>
+    <a href="/desktop">
+        <img src="/home.png" />
+    </a><span>{TB} </span>
+    <table class="cwdtable" width="100%" cellspacing="0">
+        <tr>
+            {TC}
+        </tr>
+    </table>
+    <table class="maintable" width="100%" cellspacing="0">
+        <tr>
+            <th>
+                文件名称
+            </th>
+            <th align="right">
+                文件长度
+            </th>
+            <th>
+                修改时间
+            </th>
+        </tr>
+        {TD}
+    </table>
+</body>
+<script language="JavaScript" type="text/JavaScript">
+    function tg(a) {
+        return /\.(bmp|gif|jpg|jpeg|png|BMP|JPEG|GIF|JPG|PNG)$/.test(a);
+    };
+    var $ = function (id) {
+        return "string" == typeof id && document.getElementById(id);
+    };
+    var Tg = function (name) {
+        return "string" == typeof name && document.getElementsByTagName(name);
+    };
+    var Ga = function (E, A) {
+        return E && E.getAttribute && "string" == typeof A && E.getAttribute(A);
+    }
+    var timeout = 0;
+    var nt = new Date().getTime();
+    var rf = true;
+	var ds={};ds['i']=[];
+	ds.GT = function(id)
+	{
+		var its=ds.i;
+		var tie=$(id);
+		for(var i=0;i<its.length;i++)
+			if(its[i].e.style.zIndex>tie.style.zIndex) its[i].e.style.zIndex--;
+		tie.style.zIndex=its.length;
+	}
+    function intval(a) {
+        if (a.offsetParent.style.visibility != "hidden") {
+            var ig = a.offsetParent.children[0];
+            nt = new Date().getTime();
+            ig.src = a.offsetParent.id + "cast.jpg&id=" + new Date().getTime();
+        }
+    }
+    var img = function (value) {
+        if (value) { setCookie("img", value) }
+        else {
+            return getCookie("img");
+        }
+    };
+    function isIe() {
+        return navigator.userAgent.toUpperCase().indexOf("MSIE") != -1 ? true : false;
+    }
+    var onlink = false;
+
+    function aa(event, ele) {
+        e = event || window.event;
+        var a = ele || this;
+        var hasb = Ga(a, 'tag') == 'host';
+        if (!hasb) if (!tg(a.href)) return;
+        if (!e.x) { event.x = event.clientX; event.y = event.clientY };
+        nt = new Date().getTime();
+
+        var href = hasb ? a.href + "cast.jpg&id=" + nt : a.href;
+
+        if ($(a.href) == null) {
+            var msg = document.createElement("div");
+            msg.id = a.href;
+            var size = "width=\"800\"";
+            if (e.w) size = "width=\"" + parseInt(e.w) + "\"";
+            var tag = "";
+            if (hasb) tag = " tag = \"" + a.href + "\" "; else {
+                size = "height=400";
+            }
+            var innerT = "<img "+ tag + size + " onload=\"cc(this)\"  src=\"href\" />";
+            msg.innerHTML = innerT.replace("href", href);
+			e.yy=e.y;
+			if(isIe())e.yy=parseInt(e.y)-parseInt(((document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body).scrollTop);
+            with (msg.style) {
+                position = "fixed";
+                left = (e.l ? e.l : (parseInt(document.body.clientWidth) / 2 - parseInt(e.x) < 0) ? document.body.scrollLeft : parseInt(e.x) - (-5)) + "px";
+                top = (e.t ? e.t : (parseInt(document.documentElement.clientHeight) / 2 - parseInt(e.yy) < 0) ? document.body.scrollTop : parseInt(document.body.scrollTop) - (-parseInt(e.yy)) - (-5)) + "px";
+                if ((navigator.userAgent.toLowerCase().match(/chrome\/([\d.]+)/)))
+                    top = (e.t ? e.t : (parseInt(document.documentElement.clientHeight) / 2 - parseInt(e.yy) < 0) ? 0 : parseInt(0) - (-parseInt(e.yy)) - (-5)) + "px";
+                margin = "2px";
+                padding = "2px";
+                border = "1px solid #cccccc";
+                if (hasb) cursor = "move";
+                visibility = (!ele || getCookie(a.href + "isAllwaysShow") == 'true') ? "visible" : "hidden";
+            }
+			ds["i"].push({id:a.href,e:msg});;
+			msg.style.zIndex=ds['i'].length;
+            document.body.appendChild(msg);
+			
+        } else {
+			
+            if (hasb)
+			{
+				var ig=$(a.href).children[0];
+				 ig.src = href;
+				 ds.GT(a.href);
+			}
+            $(a.href).style.visibility = "visible";
+			
+        }
+
+        if (hasb) {
+            if (!ele) onlink = true;
+            img(a.href); rf = true;
+            //timer = setInterval(, 1000);
+        }
+    }
+    function bb(e) {
+        var a = this;
+        onlink = false;
+        var hasb = Ga(a, 'tag') == 'host';
+        if (!hasb) if (!tg(a.href)) return;
+        if ($(a.href) != null && getCookie(a.href + "isAllwaysShow") != 'true') {
+            $(a.href).style.visibility = "hidden";
+            if (hasb) {
+                img("");
+                rf = false;
+                //clearInterval(timer);
+            }
+        }
+    };
+    function cc(a) {
+        var b = new Image();
+        b.src = a.src;
+		if(Ga(a, 'tag'))
+		{
+			if(!a.height) a.removeAttribute("height");
+		
+		}else if (b.height < 400 && b.height) a.height = b.height;
+        if (rf && Ga(a, 'tag')) setTimeout(function () { intval(a); }, new Date().getTime() - nt + 1000);
+    }
+    function scrollFunc(e) {
+        var topTo = (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop) + (top > 0 ? top : 0);
+        var o;
+        if (img() == "" || !(o = $(img()))) return;
+        e = e || window.event;
+        var ig = o.children[0];
+        if (!e.x) { e.x = e.clientX; e.y = e.clientY };
+        var IeA = isIe() ? topTo : 0;
+        var a = e.y - IeA <= parseInt(o.style.top) + ig.height && e.y - IeA >= parseInt(o.style.top);
+        var b = e.x <= parseInt(o.style.left) + ig.width && e.x >= parseInt(o.style.left);
+        if (o.style.visibility != "hidden" && (onlink || (a && b))) {
+            var direct = 0;
+            if (e.wheelDelta) {//IE/Opera/Chrome
+                direct = -e.wheelDelta / 40;
+            } else if (e.detail) {//Firefox
+                direct = e.detail;
+            }
+            direct = -direct / 12;
+
+            if (o.children[0].width > 400)
+                direct = direct / 2;
+			if (o.children[0].width > 800)
+                direct = direct / 2;
+			ig.width+=ig.width * direct;
+			if(ig.width<100)ig.width=100;
+            setCookie("width", ig.width);
+            if (window.event) {
+                e.cancelBubble = true;
+            } else {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            return false;
+        }
+
+
+    };
+    if (document.addEventListener) {
+        document.addEventListener('DOMMouseScroll', scrollFunc, false);
+    } //W3C
+    window.onmousewheel = document.onmousewheel = scrollFunc;
+    var A = Tg("a");
+    for (var i = 0; i < A.length; i++) {
+        // onmouseout = "bb(this)";  //onmouseover="aa(this,event || window.event)"
+        if (A[i].addEventListener) {
+            A[i].addEventListener('onmouseover', aa, false);
+            A[i].addEventListener('onmouseout', bb, false);
+        } //W3C
+        A[i].onmouseover = aa;
+        A[i].onmouseout = bb;
+    }
+
+
+    var dragapproved = false
+    var z, x, y
+    function move(event) {
+        event = event || window.event;
+        if (dragapproved) {
+            if (!-[1,] && event.button||!event.button) {
+                z.style.left = temp1 + event.clientX - x + "px";
+                z.style.top = temp2 + event.clientY - y + "px";
+                setCookie("left", parseInt(z.style.left));
+                setCookie("top", parseInt(z.style.top));
+            } return false;
+        }
+    }
+    function drags(event) {
+        event = event || window.event;
+        z = event.srcElement || event.originalTarget;
+        if (z.nodeName != "IMG") return;
+        if (z.offsetParent == null) return;
+        z = z.offsetParent;
+        if (z.id) {
+			ds.GT(z.id);
+			img(z.id);
+            temp1 = parseInt(z.style.left);
+            temp2 = parseInt(z.style.top);
+            dragapproved = true;
+            x = event.clientX;
+            y = event.clientY;
+            document.onmousemove = move;
+        }
+        return false;
+    }
+    document.onmousedown = drags
+    document.onmouseup = new Function("dragapproved=false")
+
+
+    document.onkeydown = function key(e) {
+        e = e || event;
+        var o;
+        if (img() == "" || !(o = $(img()))) return;
+        var left = parseInt(o.style.left);
+        var top = parseInt(o.style.top);
+        var v = 10; if (e.ctrlKey) v = 1;
+        if (e.keyCode == 27) {
+            if (o.style.visibility == "hidden") {
+                setCookie(img() + "isAllwaysShow", "true");
+                o.style.visibility = "visible";
+                intval(o.children[0]);
+            } else {
+                setCookie(img() + "isAllwaysShow", "false");
+                o.style.visibility = "hidden";
+            }
+            return false;
+        };
+        if (o.style.visibility != "hidden") {
+            switch (e.keyCode) {
+                case 32:
+                    setCookie(img() + "isAllwaysShow", "true");
+                    break;
+                case 37:
+                    o.style.left = left - v;
+                    setCookie("left", o.style.left);
+                    break;
+                case 39:
+                    o.style.left = left + v;
+                    setCookie("left", o.style.left);
+                    break;
+                case 38:
+                    o.style.top = top - v;
+                    setCookie("top", o.style.top);
+                    break;
+                case 40:
+                    o.style.top = top + v;
+                    setCookie("top", o.style.top);
+                    break;
+                default:
+                    return true;
+                    break;
+            }
+            return false;
+        }
+        else return true;
+    }
+    function setCookie(name, value) {
+        var Days = 1;
+        var exp = new Date();
+        exp.setTime(exp.getTime() + 365 * 24 * 60 * 60 * 1000);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
+    };
+    function getCookie(name) {
+        var arr = document.cookie.match(new RegExp("(^| )" + name + "=([^;]*)(;|$)"));
+        if (arr != null) return unescape(arr[2]);
+        return null;
+    };
+    var simg = img();
+    if (simg) {
+        var A = Tg("a");
+        for (var i = 0; i < A.length; i++) {
+            if (A[i].href == simg) {
+                var w = getCookie('width');
+                var l = getCookie('left');
+                var t = getCookie('top');
+                if (w) w = parseInt(w);
+                if (l) l = parseInt(l);
+                if (t) t = parseInt(t);
+                var p = { w: w, l: l, t: t };
+                if (!p.l) {
+                    if (!p.w) {
+                        p.w = 400;
+                    }
+                    p.x = (parseInt(document.body.clientWidth) - p.w) / 2;
+                }
+                else p.x = p.l;
+                if (p.t) p.y = p.t; else p.y = 20;
+                aa(p, A[i]); break;
+            }
+        }
+    }
+    function gR() {
+        var request;
+        try {
+            request = new ActivexObject("Msxml2.XMLHTTP");
+        }
+        catch (e1) {
+            try {
+                request = new ActivexObject("Microsoft.XMLHTTP");
+            }
+            catch (e2) {
+                request = false;
+            }
+        }
+        if (!request && typeof XMLHttpRequest != 'undefined') {
+            request = new XMLHttpRequest();
+        }
+        return request;
+    }
+
+    function eR(url) {
+        var xmlHttp = gR();
+        try {
+            xmlHttp.open("GET", url, true);
+            xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            request.onreadystatechange = function () {
+                if (request.readyState == 4) {
+                    var msg = document.createElement("div");
+                    msg.id = url;
+                    var innerT = "<span>" + request.responseText + "</span>";
+                    document.body.appendChild(msg);
+                }
+            };
+            xmlHttp.send(null);
+        } catch (e) { };
+    }
+    function d_c(url) {
+
+    }
+</script>
+</html>
